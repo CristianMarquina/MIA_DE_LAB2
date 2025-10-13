@@ -9,13 +9,11 @@ def run_etl_pipeline():
     DATA_DIRECTORY = 'data/raw' 
     
     try:
-        # 1. Initialize the processor, loading all raw data.
         processor = F1ETQualifyProcessor(data_path=DATA_DIRECTORY)
         
-        # 2. Process each dimension first. This cleans the data.
+        # Process each dimension first. This cleans the data.
         dim_drivers = processor.process_dim_drivers()
-        print("\n--- Verification: Displaying head of processed DataFrames ---")
-        print("\n** Drivers Dimension (note the 'Unknown' record at ID 0) **")
+        print("\n** Drivers Dimension **")
         print(dim_drivers.head())
         dim_constructors = processor.process_dim_constructors()
         print("\n** Constructors Dimension **")
@@ -26,24 +24,12 @@ def run_etl_pipeline():
         dim_races = processor.process_dim_races()
         print("\n** Races Dimension **")
         print(dim_races.head())
-        print("\nColumnas en dim_races ANTES de procesar los hechos:", dim_races.columns)
-        
         # 3. Process the fact table, passing the clean dimensions for mapping.
         fact_qualifying = processor.process_fact_qualifying(
             dim_races=dim_races,
             dim_drivers=dim_drivers,
             dim_constructors=dim_constructors
         )
-        
-        # 4. Verification step.
-       
-        
-        
-        
-        
-        
-        
-        
         print("\n** Qualifying Fact Table (note the mapped FKs) **")
         print(fact_qualifying.head())
         
