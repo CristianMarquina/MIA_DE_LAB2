@@ -16,7 +16,7 @@ class F1ETQualifyProcessor:
             self.df_drivers_raw = pd.read_csv(f"{self.data_path}/drivers.csv")
             self.df_constructors_raw = pd.read_csv(f"{self.data_path}/constructors.csv")
             self.df_circuits_raw = pd.read_csv(f"{self.data_path}/circuits.csv")
-            self.df_races_raw = pd.read_csv(f"{self.data_path}/races1.csv")
+            self.df_races_raw = pd.read_csv(f"{self.data_path}/races.csv")
             # For facts
             self.df_qualifying_raw = pd.read_csv(f"{self.data_path}/qualifying.csv")
             print("All raw data loaded successfully.")
@@ -125,8 +125,12 @@ class F1ETQualifyProcessor:
         df['q1_time_ms'] = df['q1'].apply(self._time_to_milliseconds)
         df['q2_time_ms'] = df['q2'].apply(self._time_to_milliseconds)
         df['q3_time_ms'] = df['q3'].apply(self._time_to_milliseconds)
+
+        time_cols = ['q1_time_ms', 'q2_time_ms', 'q3_time_ms']
+        for col in time_cols:
+            df[col] = df[col].fillna(0).astype(int)
         # Final column selection and renaming
-        df = df.rename(columns={'qualifyId': 'qualify_id', 'number': 'car_number'})
+        df = df.rename(columns={'qualifyId': 'qualify_id'})
         final_columns = [
             'qualify_id', 'race_id', 'driver_id', 'constructor_id', 
             'position', 'q1_time_ms', 'q2_time_ms', 'q3_time_ms'

@@ -111,7 +111,7 @@ race_id,year,round,circuit_id,name,date,time
 110,2003,3,18,Brazilian Grand Prix,2003-04-06,\N
 111,2003,4,21,San Marino Grand Prix,2003-04-20,\N
 112,2003,5,4,Spanish Grand Prix,2003-05-04,\N
-113,2003,6,70,Austrian Grand Prix,2003-05-18,\N
+113,2003,6,23,Austrian Grand Prix,2003-05-18,\N
 114,2003,7,6,Monaco Grand Prix,2003-06-01,\N
 115,2003,8,7,Canadian Grand Prix,2003-06-15,\N
 116,2003,9,20,European Grand Prix,2003-06-29,\N
@@ -127,7 +127,7 @@ race_id,year,round,circuit_id,name,date,time
 126,2002,3,18,Brazilian Grand Prix,2002-03-31,\N
 127,2002,4,21,San Marino Grand Prix,2002-04-14,\N
 128,2002,5,4,Spanish Grand Prix,2002-04-28,\N
-129,2002,6,70,Austrian Grand Prix,2002-05-12,\N
+129,2002,6,23,Austrian Grand Prix,2002-05-12,\N
 130,2002,7,6,Monaco Grand Prix,2002-05-26,\N
 131,2002,8,7,Canadian Grand Prix,2002-06-09,\N
 132,2002,9,20,European Grand Prix,2002-06-23,\N
@@ -144,7 +144,7 @@ race_id,year,round,circuit_id,name,date,time
 143,2001,3,18,Brazilian Grand Prix,2001-04-01,\N
 144,2001,4,21,San Marino Grand Prix,2001-04-15,\N
 145,2001,5,4,Spanish Grand Prix,2001-04-29,\N
-146,2001,6,70,Austrian Grand Prix,2001-05-13,\N
+146,2001,6,23,Austrian Grand Prix,2001-05-13,\N
 147,2001,7,6,Monaco Grand Prix,2001-05-27,\N
 148,2001,8,7,Canadian Grand Prix,2001-06-10,\N
 149,2001,9,20,European Grand Prix,2001-06-24,\N
@@ -165,7 +165,7 @@ race_id,year,round,circuit_id,name,date,time
 164,2000,7,6,Monaco Grand Prix,2000-06-04,\N
 165,2000,8,7,Canadian Grand Prix,2000-06-18,\N
 166,2000,9,8,French Grand Prix,2000-07-02,\N
-167,2000,10,70,Austrian Grand Prix,2000-07-16,\N
+167,2000,10,23,Austrian Grand Prix,2000-07-16,\N
 168,2000,11,10,German Grand Prix,2000-07-30,\N
 169,2000,12,11,Hungarian Grand Prix,2000-08-13,\N
 170,2000,13,13,Belgian Grand Prix,2000-08-27,\N
@@ -181,7 +181,7 @@ race_id,year,round,circuit_id,name,date,time
 180,1999,6,7,Canadian Grand Prix,1999-06-13,\N
 181,1999,7,8,French Grand Prix,1999-06-27,\N
 182,1999,8,9,British Grand Prix,1999-07-11,\N
-183,1999,9,70,Austrian Grand Prix,1999-07-25,\N
+183,1999,9,23,Austrian Grand Prix,1999-07-25,\N
 184,1999,10,10,German Grand Prix,1999-08-01,\N
 185,1999,11,11,Hungarian Grand Prix,1999-08-15,\N
 186,1999,12,13,Belgian Grand Prix,1999-08-29,\N
@@ -198,7 +198,7 @@ race_id,year,round,circuit_id,name,date,time
 197,1998,7,7,Canadian Grand Prix,1998-06-07,\N
 198,1998,8,8,French Grand Prix,1998-06-28,\N
 199,1998,9,9,British Grand Prix,1998-07-12,\N
-200,1998,10,70,Austrian Grand Prix,1998-07-26,\N
+200,1998,10,23,Austrian Grand Prix,1998-07-26,\N
 201,1998,11,10,German Grand Prix,1998-08-02,\N
 202,1998,12,11,Hungarian Grand Prix,1998-08-16,\N
 203,1998,13,13,Belgian Grand Prix,1998-08-30,\N
@@ -218,7 +218,7 @@ race_id,year,round,circuit_id,name,date,time
 217,1997,11,11,Hungarian Grand Prix,1997-08-10,\N
 218,1997,12,13,Belgian Grand Prix,1997-08-24,\N
 219,1997,13,14,Italian Grand Prix,1997-09-07,\N
-220,1997,14,70,Austrian Grand Prix,1997-09-21,\N
+220,1997,14,23,Austrian Grand Prix,1997-09-21,\N
 221,1997,15,20,Luxembourg Grand Prix,1997-09-28,\N
 222,1997,16,22,Japanese Grand Prix,1997-10-12,\N
 223,1997,17,26,European Grand Prix,1997-10-26,\N
@@ -395,7 +395,7 @@ race_id,year,round,circuit_id,name,date,time
 394,1987,7,9,British Grand Prix,1987-07-12,\N
 395,1987,8,10,German Grand Prix,1987-07-26,\N
 396,1987,9,11,Hungarian Grand Prix,1987-08-09,\N
-397,1987,10,70,Austrian Grand Prix,1987-08-16,\N
+397,1987,10,23,Austrian Grand Prix,1987-08-16,\N
 398,1987,11,14,Italian Grand Prix,1987-09-06,\N
 399,1987,12,27,Portuguese Grand Prix,1987-09-20,\N
 400,1987,13,26,Spanish Grand Prix,1987-09-27,\N
@@ -413,7 +413,7 @@ race_id,year,round,circuit_id,name,date,time
 412,1986,9,38,British Grand Prix,1986-07-13,\N
 413,1986,10,10,German Grand Prix,1986-07-27,\N
 414,1986,11,11,Hungarian Grand Prix,1986-08-10,\N
-415,1986,12,70,Austrian Grand Prix,1986-08-17,\N
+415,1986,12,23,Austrian Grand Prix,1986-08-17,\N
 416,1986,13,14,Italian Grand Prix,1986-09-07,\N
 417,1986,14,27,Portuguese Grand Prix,1986-09-21,\N
 418,1986,15,32,Mexican Grand Prix,1986-10-12,\N
@@ -427,7 +427,7 @@ race_id,year,round,circuit_id,name,date,time
 426,1985,7,34,French Grand Prix,1985-07-07,\N
 427,1985,8,9,British Grand Prix,1985-07-21,\N
 428,1985,9,20,German Grand Prix,1985-08-04,\N
-429,1985,10,70,Austrian Grand Prix,1985-08-18,\N
+429,1985,10,23,Austrian Grand Prix,1985-08-18,\N
 430,1985,11,39,Dutch Grand Prix,1985-08-25,\N
 431,1985,12,14,Italian Grand Prix,1985-09-08,\N
 432,1985,13,13,Belgian Grand Prix,1985-09-15,\N
@@ -445,7 +445,7 @@ race_id,year,round,circuit_id,name,date,time
 444,1984,9,42,Dallas Grand Prix,1984-07-08,\N
 445,1984,10,38,British Grand Prix,1984-07-22,\N
 446,1984,11,10,German Grand Prix,1984-08-05,\N
-447,1984,12,70,Austrian Grand Prix,1984-08-19,\N
+447,1984,12,23,Austrian Grand Prix,1984-08-19,\N
 448,1984,13,39,Dutch Grand Prix,1984-08-26,\N
 449,1984,14,14,Italian Grand Prix,1984-09-09,\N
 450,1984,15,20,European Grand Prix,1984-10-07,\N
@@ -460,7 +460,7 @@ race_id,year,round,circuit_id,name,date,time
 459,1983,8,7,Canadian Grand Prix,1983-06-12,\N
 460,1983,9,9,British Grand Prix,1983-07-16,\N
 461,1983,10,10,German Grand Prix,1983-08-07,\N
-462,1983,11,70,Austrian Grand Prix,1983-08-14,\N
+462,1983,11,23,Austrian Grand Prix,1983-08-14,\N
 463,1983,12,39,Dutch Grand Prix,1983-08-28,\N
 464,1983,13,14,Italian Grand Prix,1983-09-11,\N
 465,1983,14,38,European Grand Prix,1983-09-25,\N
@@ -477,7 +477,7 @@ race_id,year,round,circuit_id,name,date,time
 476,1982,10,38,British Grand Prix,1982-07-18,\N
 477,1982,11,34,French Grand Prix,1982-07-25,\N
 478,1982,12,10,German Grand Prix,1982-08-08,\N
-479,1982,13,70,Austrian Grand Prix,1982-08-15,\N
+479,1982,13,23,Austrian Grand Prix,1982-08-15,\N
 480,1982,14,41,Swiss Grand Prix,1982-08-29,\N
 481,1982,15,14,Italian Grand Prix,1982-09-12,\N
 482,1982,16,44,Caesars Palace Grand Prix,1982-09-25,\N
@@ -491,7 +491,7 @@ race_id,year,round,circuit_id,name,date,time
 490,1981,8,41,French Grand Prix,1981-07-05,\N
 491,1981,9,9,British Grand Prix,1981-07-18,\N
 492,1981,10,10,German Grand Prix,1981-08-02,\N
-493,1981,11,70,Austrian Grand Prix,1981-08-16,\N
+493,1981,11,23,Austrian Grand Prix,1981-08-16,\N
 494,1981,12,39,Dutch Grand Prix,1981-08-30,\N
 495,1981,13,14,Italian Grand Prix,1981-09-13,\N
 496,1981,14,7,Canadian Grand Prix,1981-09-27,\N
@@ -505,7 +505,7 @@ race_id,year,round,circuit_id,name,date,time
 504,1980,7,34,French Grand Prix,1980-06-29,\N
 505,1980,8,38,British Grand Prix,1980-07-13,\N
 506,1980,9,10,German Grand Prix,1980-08-10,\N
-507,1980,10,70,Austrian Grand Prix,1980-08-17,\N
+507,1980,10,23,Austrian Grand Prix,1980-08-17,\N
 508,1980,11,39,Dutch Grand Prix,1980-08-31,\N
 509,1980,12,21,Italian Grand Prix,1980-09-14,\N
 510,1980,13,7,Canadian Grand Prix,1980-09-28,\N
@@ -520,7 +520,7 @@ race_id,year,round,circuit_id,name,date,time
 519,1979,8,41,French Grand Prix,1979-07-01,\N
 520,1979,9,9,British Grand Prix,1979-07-14,\N
 521,1979,10,10,German Grand Prix,1979-07-29,\N
-522,1979,11,70,Austrian Grand Prix,1979-08-12,\N
+522,1979,11,23,Austrian Grand Prix,1979-08-12,\N
 523,1979,12,39,Dutch Grand Prix,1979-08-26,\N
 524,1979,13,14,Italian Grand Prix,1979-09-09,\N
 525,1979,14,7,Canadian Grand Prix,1979-09-30,\N
@@ -536,7 +536,7 @@ race_id,year,round,circuit_id,name,date,time
 535,1978,9,34,French Grand Prix,1978-07-02,\N
 536,1978,10,38,British Grand Prix,1978-07-16,\N
 537,1978,11,10,German Grand Prix,1978-07-30,\N
-538,1978,12,70,Austrian Grand Prix,1978-08-13,\N
+538,1978,12,23,Austrian Grand Prix,1978-08-13,\N
 539,1978,13,39,Dutch Grand Prix,1978-08-27,\N
 540,1978,14,14,Italian Grand Prix,1978-09-10,\N
 541,1978,15,46,United States Grand Prix,1978-10-01,\N
@@ -552,7 +552,7 @@ race_id,year,round,circuit_id,name,date,time
 551,1977,9,41,French Grand Prix,1977-07-03,\N
 552,1977,10,9,British Grand Prix,1977-07-16,\N
 553,1977,11,10,German Grand Prix,1977-07-31,\N
-554,1977,12,70,Austrian Grand Prix,1977-08-14,\N
+554,1977,12,23,Austrian Grand Prix,1977-08-14,\N
 555,1977,13,39,Dutch Grand Prix,1977-08-28,\N
 556,1977,14,14,Italian Grand Prix,1977-09-11,\N
 557,1977,15,46,United States Grand Prix,1977-10-02,\N
@@ -568,7 +568,7 @@ race_id,year,round,circuit_id,name,date,time
 567,1976,8,34,French Grand Prix,1976-07-04,\N
 568,1976,9,38,British Grand Prix,1976-07-18,\N
 569,1976,10,20,German Grand Prix,1976-08-01,\N
-570,1976,11,70,Austrian Grand Prix,1976-08-15,\N
+570,1976,11,23,Austrian Grand Prix,1976-08-15,\N
 571,1976,12,39,Dutch Grand Prix,1976-08-29,\N
 572,1976,13,14,Italian Grand Prix,1976-09-12,\N
 573,1976,14,48,Canadian Grand Prix,1976-10-03,\N
@@ -585,7 +585,7 @@ race_id,year,round,circuit_id,name,date,time
 584,1975,9,34,French Grand Prix,1975-07-06,\N
 585,1975,10,9,British Grand Prix,1975-07-19,\N
 586,1975,11,20,German Grand Prix,1975-08-03,\N
-587,1975,12,70,Austrian Grand Prix,1975-08-17,\N
+587,1975,12,23,Austrian Grand Prix,1975-08-17,\N
 588,1975,13,14,Italian Grand Prix,1975-09-07,\N
 589,1975,14,46,United States Grand Prix,1975-10-05,\N
 590,1974,1,25,Argentine Grand Prix,1974-01-13,\N
@@ -599,7 +599,7 @@ race_id,year,round,circuit_id,name,date,time
 598,1974,9,41,French Grand Prix,1974-07-07,\N
 599,1974,10,38,British Grand Prix,1974-07-20,\N
 600,1974,11,20,German Grand Prix,1974-08-04,\N
-601,1974,12,70,Austrian Grand Prix,1974-08-18,\N
+601,1974,12,23,Austrian Grand Prix,1974-08-18,\N
 602,1974,13,14,Italian Grand Prix,1974-09-08,\N
 603,1974,14,48,Canadian Grand Prix,1974-09-22,\N
 604,1974,15,46,United States Grand Prix,1974-10-06,\N
@@ -614,7 +614,7 @@ race_id,year,round,circuit_id,name,date,time
 613,1973,9,9,British Grand Prix,1973-07-14,\N
 614,1973,10,39,Dutch Grand Prix,1973-07-29,\N
 615,1973,11,20,German Grand Prix,1973-08-05,\N
-616,1973,12,70,Austrian Grand Prix,1973-08-19,\N
+616,1973,12,23,Austrian Grand Prix,1973-08-19,\N
 617,1973,13,14,Italian Grand Prix,1973-09-09,\N
 618,1973,14,48,Canadian Grand Prix,1973-09-23,\N
 619,1973,15,46,United States Grand Prix,1973-10-07,\N
@@ -626,7 +626,7 @@ race_id,year,round,circuit_id,name,date,time
 625,1972,6,51,French Grand Prix,1972-07-02,\N
 626,1972,7,38,British Grand Prix,1972-07-15,\N
 627,1972,8,20,German Grand Prix,1972-07-30,\N
-628,1972,9,70,Austrian Grand Prix,1972-08-13,\N
+628,1972,9,23,Austrian Grand Prix,1972-08-13,\N
 629,1972,10,14,Italian Grand Prix,1972-09-10,\N
 630,1972,11,48,Canadian Grand Prix,1972-09-24,\N
 631,1972,12,46,United States Grand Prix,1972-10-08,\N
@@ -637,7 +637,7 @@ race_id,year,round,circuit_id,name,date,time
 636,1971,5,34,French Grand Prix,1971-07-04,\N
 637,1971,6,9,British Grand Prix,1971-07-17,\N
 638,1971,7,20,German Grand Prix,1971-08-01,\N
-639,1971,8,70,Austrian Grand Prix,1971-08-15,\N
+639,1971,8,23,Austrian Grand Prix,1971-08-15,\N
 640,1971,9,14,Italian Grand Prix,1971-09-05,\N
 641,1971,10,48,Canadian Grand Prix,1971-09-19,\N
 642,1971,11,46,United States Grand Prix,1971-10-03,\N
@@ -649,7 +649,7 @@ race_id,year,round,circuit_id,name,date,time
 648,1970,6,51,French Grand Prix,1970-07-05,\N
 649,1970,7,38,British Grand Prix,1970-07-18,\N
 650,1970,8,10,German Grand Prix,1970-08-02,\N
-651,1970,9,70,Austrian Grand Prix,1970-08-16,\N
+651,1970,9,23,Austrian Grand Prix,1970-08-16,\N
 652,1970,10,14,Italian Grand Prix,1970-09-06,\N
 653,1970,11,52,Canadian Grand Prix,1970-09-20,\N
 654,1970,12,46,United States Grand Prix,1970-10-04,\N
@@ -1065,62 +1065,15 @@ race_id,year,round,circuit_id,name,date,time
 1064,2022,7,6,Monaco Grand Prix,2022-05-29,13:00:00
 1065,2022,8,73,Azerbaijan Grand Prix,2022-06-12,11:00:00
 1066,2022,9,7,Canadian Grand Prix,2022-06-19,18:00:00
-1067,2022,10,9,British Grand Prix,2022-07-03,14:00:00
-1068,2022,11,70,Austrian Grand Prix,2022-07-10,13:00:00
-1069,2022,12,34,French Grand Prix,2022-07-24,13:00:00
-1070,2022,13,11,Hungarian Grand Prix,2022-07-31,13:00:00
-1071,2022,14,13,Belgian Grand Prix,2022-08-28,13:00:00
-1072,2022,15,39,Dutch Grand Prix,2022-09-04,13:00:00
-1073,2022,16,14,Italian Grand Prix,2022-09-11,13:00:00
-1074,2022,17,15,Singapore Grand Prix,2022-10-02,12:00:00
-1075,2022,18,22,Japanese Grand Prix,2022-10-09,05:00:00
-1076,2022,19,69,United States Grand Prix,2022-10-23,19:00:00
-1077,2022,20,32,Mexico City Grand Prix,2022-10-30,20:00:00
-1078,2022,21,18,São Paulo Grand Prix,2022-11-13,18:00:00
-1079,2022,22,24,Abu Dhabi Grand Prix,2022-11-20,13:00:00
-1080,2023,1,3,Bahrain Grand Prix,2023-03-05,15:00:00
-1081,2023,2,77,Saudi Arabian Grand Prix,2023-03-19,17:00:00
-1082,2023,3,1,Australian Grand Prix,2023-04-02,05:00:00
-1083,2023,4,73,Azerbaijan Grand Prix,2023-04-30,11:00:00
-1084,2023,5,79,Miami Grand Prix,2023-05-07,19:30:00
-1085,2023,6,6,Monaco Grand Prix,2023-05-28,13:00:00
-1086,2023,7,4,Spanish Grand Prix,2023-06-04,13:00:00
-1087,2023,8,7,Canadian Grand Prix,2023-06-18,18:00:00
-1088,2023,9,70,Austrian Grand Prix,2023-07-02,13:00:00
-1089,2023,10,9,British Grand Prix,2023-07-09,14:00:00
-1090,2023,11,11,Hungarian Grand Prix,2023-07-23,13:00:00
-1091,2023,12,13,Belgian Grand Prix,2023-07-30,13:00:00
-1092,2023,13,39,Dutch Grand Prix,2023-08-27,13:00:00
-1093,2023,14,14,Italian Grand Prix,2023-09-03,13:00:00
-1094,2023,15,15,Singapore Grand Prix,2023-09-17,12:00:00
-1095,2023,16,22,Japanese Grand Prix,2023-09-24,05:00:00
-1096,2023,17,78,Qatar Grand Prix,2023-10-08,17:00:00
-1097,2023,18,69,United States Grand Prix,2023-10-22,19:00:00
-1098,2023,19,32,Mexico City Grand Prix,2023-10-29,20:00:00
-1099,2023,20,18,São Paulo Grand Prix,2023-11-05,17:00:00
-1100,2023,21,80,Las Vegas Grand Prix,2023-11-19,06:00:00
-1101,2023,22,24,Abu Dhabi Grand Prix,2023-11-26,13:00:00
-1102,2024,1,3,Bahrain Grand Prix,2024-03-02,15:00:00
-1103,2024,2,77,Saudi Arabian Grand Prix,2024-03-09,17:00:00
-1104,2024,3,1,Australian Grand Prix,2024-03-24,04:00:00
-1105,2024,4,22,Japanese Grand Prix,2024-04-07,05:00:00
-1106,2024,5,17,Chinese Grand Prix,2024-04-21,07:00:00
-1107,2024,6,79,Miami Grand Prix,2024-05-05,20:00:00
-1108,2024,7,21,Emilia Romagna Grand Prix,2024-05-19,13:00:00
-1109,2024,8,6,Monaco Grand Prix,2024-05-26,13:00:00
-1110,2024,9,7,Canadian Grand Prix,2024-06-09,18:00:00
-1111,2024,10,4,Spanish Grand Prix,2024-06-23,13:00:00
-1112,2024,11,70,Austrian Grand Prix,2024-06-30,13:00:00
-1113,2024,12,9,British Grand Prix,2024-07-07,14:00:00
-1114,2024,13,11,Hungarian Grand Prix,2024-07-21,13:00:00
-1115,2024,14,13,Belgian Grand Prix,2024-07-28,13:00:00
-1116,2024,15,39,Dutch Grand Prix,2024-08-25,13:00:00
-1117,2024,16,14,Italian Grand Prix,2024-09-01,13:00:00
-1118,2024,17,73,Azerbaijan Grand Prix,2024-09-15,11:00:00
-1119,2024,18,15,Singapore Grand Prix,2024-09-22,12:00:00
-1120,2024,19,69,United States Grand Prix,2024-10-20,19:00:00
-1121,2024,20,32,Mexico City Grand Prix,2024-10-27,20:00:00
-1122,2024,21,18,São Paulo Grand Prix,2024-11-03,17:00:00
-1123,2024,22,80,Las Vegas Grand Prix,2024-11-23,06:00:00
-1124,2024,23,78,Qatar Grand Prix,2024-12-01,17:00:00
-1125,2024,24,24,Abu Dhabi Grand Prix,2024-12-08,13:00:00
+1067,2022,11,70,Austrian Grand Prix,2022-07-10,13:00:00
+1068,2022,12,34,French Grand Prix,2022-07-24,13:00:00
+1069,2022,13,11,Hungarian Grand Prix,2022-07-31,13:00:00
+1070,2022,14,13,Belgian Grand Prix,2022-08-28,13:00:00
+1071,2022,15,39,Dutch Grand Prix,2022-09-04,13:00:00
+1072,2022,16,14,Italian Grand Prix,2022-09-11,13:00:00
+1073,2022,17,15,Singapore Grand Prix,2022-10-02,12:00:00
+1074,2022,18,22,Japanese Grand Prix,2022-10-09,05:00:00
+1075,2022,19,69,United States Grand Prix,2022-10-23,19:00:00
+1076,2022,20,32,Mexico City Grand Prix,2022-10-30,20:00:00
+1077,2022,21,18,Brazilian Grand Prix,2022-11-13,18:00:00
+1078,2022,22,24,Abu Dhabi Grand Prix,2022-11-20,13:00:00
