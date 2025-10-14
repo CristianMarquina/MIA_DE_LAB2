@@ -39,14 +39,22 @@ class F1ETQualifyProcessor:
         """Processes drivers data, cleans it, and adds an 'Unknown' record."""
         print("Processing Dimension: Drivers...")
         df = self.df_drivers_raw.copy()
-        
+        print("Initial number of records:", len(df))
+        print("Initial number of records:", len(df))
+        print("Initial number of records:", len(df))
+        print("Initial number of records:", len(df))
+        print(len(df))
         # Data Cleaning: Drop rows with null IDs and remove duplicates
         df.dropna(subset=['driverId'], inplace=True)
         df.drop_duplicates(subset=['driverId'], inplace=True)
         
         df['full_name'] = df['forename'] + ' ' + df['surname']
-        df = df[['driverId', 'driverRef', 'full_name', 'dob', 'nationality']]
-        df = df.rename(columns={'driverId': 'driver_id', 'driverRef': 'driver_ref'})
+        df = df[['driverRef', 'full_name', 'dob', 'nationality']]
+        df.insert(0, 'driver_id', range(1, len(df) + 1))
+        df = df.rename(columns={'driverRef': 'driver_ref'})
+        print("Processed number of records:", len(df))
+        print("Processed number of records:", len(df))
+        print("Processed number of records:", len(df))
         return df
 
     def process_dim_constructors(self):
@@ -57,8 +65,9 @@ class F1ETQualifyProcessor:
         df.dropna(subset=['constructorId'], inplace=True)
         df.drop_duplicates(subset=['constructorId'], inplace=True)
         
-        df = df[['constructorId', 'constructorRef', 'name', 'nationality']]
-        df = df.rename(columns={'constructorId': 'constructor_id', 'constructorRef': 'constructor_ref'})
+        df = df[['constructorRef', 'name', 'nationality']]
+        df.insert(0, 'constructor_id', range(1, len(df) + 1))
+        df = df.rename(columns={'constructorRef': 'constructor_ref'})
         return df
 
     def process_dim_circuits(self):
@@ -69,6 +78,7 @@ class F1ETQualifyProcessor:
         df.dropna(subset=['circuitId'], inplace=True)
         df.drop_duplicates(subset=['circuitId'], inplace=True)
         
+        #todo: preguntar si hay que generar un nuevo id debido a que ya exite una relacion el en dataset ocn los ids
         df = df[['circuitId', 'circuitRef', 'name', 'location', 'country']]
         df = df.rename(columns={'circuitId': 'circuit_id', 'circuitRef': 'circuit_ref'})
         return df
@@ -88,9 +98,9 @@ class F1ETQualifyProcessor:
         # delete null and duplicate raceId entries
         df.dropna(subset=['raceId'], inplace=True)
         df.drop_duplicates(subset=['raceId'], inplace=True)
-        
-        df = df[['raceId', 'year', 'round', 'circuitId', 'name', 'date', 'time']]
-        df = df.rename(columns={'raceId': 'race_id', 'circuitId': 'circuit_id'})
+        df = df[[ 'year', 'round', 'circuitId', 'name', 'date', 'time']]
+        df.insert(0, 'race_id', range(1, len(df) + 1))
+        df = df.rename(columns={'circuitId': 'circuit_id'})
         return df
 
     def process_fact_qualifying(self, dim_races, dim_drivers, dim_constructors):
@@ -108,7 +118,7 @@ class F1ETQualifyProcessor:
         df['race_id'] = df['raceId'].map(race_id_map)
         df['driver_id'] = df['driverId'].map(driver_id_map)
         df['constructor_id'] = df['constructorId'].map(constructor_id_map)
-        df.dropna(subset=['race_id'], inplace=True)
+        df.dropna(subset=['driver_id','constructor_id'], inplace=True)
         df[['race_id', 'driver_id', 'constructor_id']] = df[['race_id', 'driver_id', 'constructor_id']].astype(int)
         
         # --- Fact Transformation ---
@@ -119,7 +129,7 @@ class F1ETQualifyProcessor:
         df = df.rename(columns={'qualifyId': 'qualify_id', 'number': 'car_number'})
         final_columns = [
             'qualify_id', 'race_id', 'driver_id', 'constructor_id', 
-            'car_number', 'position', 'q1_time_ms', 'q2_time_ms', 'q3_time_ms'
+            'position', 'q1_time_ms', 'q2_time_ms', 'q3_time_ms'
         ]
         df = df[final_columns]
         

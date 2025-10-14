@@ -1,5 +1,7 @@
 from et import F1ETQualifyProcessor
-
+from loader import DatabaseLoader 
+from database import engine  
+import os
 def run_etl_pipeline():
     """
     Main function to execute the F1 ETL pipeline step-by-step.
@@ -7,7 +9,13 @@ def run_etl_pipeline():
     print("--- F1 Data ETL Pipeline Started ---")
     
     DATA_DIRECTORY = 'data/raw' 
+
+    PROCESSED_DATA_DIRECTORY = 'data/processed'
     
+
+    if not os.path.exists(PROCESSED_DATA_DIRECTORY):
+        os.makedirs(PROCESSED_DATA_DIRECTORY)
+
     try:
         processor = F1ETQualifyProcessor(data_path=DATA_DIRECTORY)
         
@@ -15,15 +23,24 @@ def run_etl_pipeline():
         dim_drivers = processor.process_dim_drivers()
         print("\n** Drivers Dimension **")
         print(dim_drivers.head())
+        dim_drivers.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_drivers.csv'), index=False)
+
         dim_constructors = processor.process_dim_constructors()
         print("\n** Constructors Dimension **")
         print(dim_constructors.head())
+        dim_constructors.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_constructors.csv'), index=False)
+        
+
         dim_circuits = processor.process_dim_circuits()
         print("\n** Circuits Dimension **")
         print(dim_circuits.head())
+        dim_circuits.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_circuits.csv'), index=False)
+
         dim_races = processor.process_dim_races()
         print("\n** Races Dimension **")
         print(dim_races.head())
+        dim_races.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_races.csv'), index=False)
+
         # 3. Process the fact table, passing the clean dimensions for mapping.
         fact_qualifying = processor.process_fact_qualifying(
             dim_races=dim_races,
@@ -32,6 +49,20 @@ def run_etl_pipeline():
         )
         print("\n** Qualifying Fact Table (note the mapped FKs) **")
         print(fact_qualifying.head())
+        fact_qualifying.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_qualifying.csv'), index=False)
+
+
+        # 1. Crea una instancia de tu nueva clase DatabaseLoader
+        db_loader = DatabaseLoader(engine=engine)
+        
+         #2. Llama al método para cargar todos los DataFrames
+        db_loader.load_data(
+            dim_drivers=dim_drivers,
+            dim_constructors=dim_constructors,
+            dim_circuits=dim_circuits,
+            dim_races=dim_races,
+            fact_qualifying=fact_qualifying
+        )
         
     except Exception as e:
         print(f"An error occurred during the ETL process: {e}")

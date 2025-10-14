@@ -1,0 +1,212 @@
+constructor_id,constructor_ref,name,nationality
+1,mclaren,McLaren,British
+2,bmw_sauber,BMW Sauber,German
+3,williams,Williams,British
+4,renault,Renault,French
+5,toro_rosso,Toro Rosso,Italian
+6,ferrari,Ferrari,Italian
+7,toyota,Toyota,Japanese
+8,super_aguri,Super Aguri,Japanese
+9,red_bull,Red Bull,Austrian
+10,force_india,Force India,Indian
+11,honda,Honda,Japanese
+12,spyker,Spyker,Dutch
+13,mf1,MF1,Russian
+14,spyker_mf1,Spyker MF1,Dutch
+15,sauber,Sauber,Swiss
+16,bar,BAR,British
+17,jordan,Jordan,Irish
+18,minardi,Minardi,Italian
+19,jaguar,Jaguar,British
+20,prost,Prost,French
+21,arrows,Arrows,British
+22,benetton,Benetton,Italian
+23,brawn,Brawn,British
+24,stewart,Stewart,British
+25,tyrrell,Tyrrell,British
+26,lola,Lola,British
+27,ligier,Ligier,French
+28,forti,Forti,Italian
+29,footwork,Footwork,British
+30,pacific,Pacific,British
+31,simtek,Simtek,British
+32,team_lotus,Team Lotus,British
+33,larrousse,Larrousse,French
+34,brabham,Brabham,British
+35,dallara,Dallara,Italian
+36,fondmetal,Fondmetal,Italian
+37,march,March,British
+38,moda,Andrea Moda,Italian
+39,ags,AGS,French
+40,lambo,Lambo,Italian
+41,leyton,Leyton House,British
+42,coloni,Coloni,Italian
+43,eurobrun,Euro Brun,Italian
+44,osella,Osella,Italian
+45,onyx,Onyx,British
+46,life,Life,Italian
+47,rial,Rial,German
+48,zakspeed,Zakspeed,German
+49,ram,RAM,British
+50,alfa,Alfa Romeo,Swiss
+51,spirit,Spirit,British
+52,toleman,Toleman,British
+53,ats,ATS,Italian
+54,theodore,Theodore,Hong Kong
+55,fittipaldi,Fittipaldi,Brazilian
+56,ensign,Ensign,British
+57,shadow,Shadow,British
+58,wolf,Wolf,Canadian
+59,merzario,Merzario,Italian
+60,kauhsen,Kauhsen,German
+61,rebaque,Rebaque,Mexican
+62,surtees,Surtees,British
+63,hesketh,Hesketh,British
+64,martini,Martini,French
+65,brm,BRM,British
+66,penske,Penske,American
+67,lec,LEC,British
+68,mcguire,McGuire,Australian
+69,boro,Boro,Dutch
+70,apollon,Apollon,Swiss
+71,kojima,Kojima,Japanese
+72,parnelli,Parnelli,American
+73,maki,Maki,Japanese
+74,hill,Embassy Hill,British
+75,lyncar,Lyncar,British
+76,trojan,Trojan,British
+77,amon,Amon,New Zealand
+78,token,Token,British
+79,iso_marlboro,Iso Marlboro,British
+80,tecno,Tecno,Italian
+81,matra,Matra,French
+82,politoys,Politoys,British
+83,connew,Connew,British
+84,bellasi,Bellasi,Swiss
+85,tomaso,De Tomaso,Italian
+86,cooper,Cooper,British
+87,eagle,Eagle,American
+88,lds,LDS,South African
+89,protos,Protos,British
+90,shannon,Shannon,British
+91,scirocco,Scirocco,British
+92,re,RE,Rhodesian
+93,brp,BRP,British
+94,porsche,Porsche,German
+95,derrington,Derrington,British
+96,gilby,Gilby,British
+97,stebro,Stebro,Canadian
+98,emeryson,Emeryson,British
+99,enb,ENB,Belgium
+100,jbw,JBW,British
+101,ferguson,Ferguson,British
+102,mbm,MBM,Swiss
+103,behra-porsche,Behra-Porsche,Italian
+104,maserati,Maserati,Italian
+105,scarab,Scarab,American
+106,watson,Watson,American
+107,epperly,Epperly,American
+108,phillips,Phillips,American
+109,lesovsky,Lesovsky,American
+110,trevis,Trevis,American
+111,meskowski,Meskowski,American
+112,kurtis_kraft,Kurtis Kraft,American
+113,kuzma,Kuzma,American
+114,vhristensen,Christensen,American
+115,ewing,Ewing,American
+116,aston_martin,Aston Martin,British
+117,vanwall,Vanwall,British
+118,moore,Moore,American
+119,dunn,Dunn,American
+120,elder,Elder,American
+121,sutton,Sutton,American
+122,fry,Fry,British
+123,tec-mec,Tec-Mec,Italian
+124,connaught,Connaught,British
+125,alta,Alta,British
+126,osca,OSCA,Italian
+127,gordini,Gordini,French
+128,stevens,Stevens,American
+129,bugatti,Bugatti,French
+130,mercedes,Mercedes,German
+131,lancia,Lancia,Italian
+132,hwm,HWM,British
+133,schroeder,Schroeder,American
+134,pawl,Pawl,American
+135,pankratz,Pankratz,American
+136,arzani-volpini,Arzani-Volpini,Italian
+137,nichels,Nichels,American
+138,bromme,Bromme,American
+139,klenk,Klenk,German
+140,simca,Simca,French
+141,turner,Turner,American
+142,del_roy,Del Roy,American
+143,veritas,Veritas,German
+144,bmw,BMW,German
+145,emw,EMW,East German
+146,afm,AFM,German
+147,frazer_nash,Frazer Nash,British
+148,sherman,Sherman,American
+149,deidt,Deidt,American
+150,era,ERA,British
+151,butterworth,Aston Butterworth,British
+152,cisitalia,Cisitalia,Italian
+153,lago,Talbot-Lago,French
+154,hall,Hall,American
+155,marchese,Marchese,American
+156,langley,Langley,American
+157,rae,Rae,American
+158,olson,Olson,American
+159,wetteroth,Wetteroth,American
+160,adams,Adams,American
+161,snowberger,Snowberger,American
+162,milano,Milano,Italian
+163,hrt,HRT,Spanish
+164,cooper-maserati,Cooper-Maserati,British
+165,virgin,Virgin,British
+166,cooper-osca,Cooper-OSCA,British
+167,cooper-borgward,Cooper-Borgward,British
+168,cooper-climax,Cooper-Climax,British
+169,cooper-castellotti,Cooper-Castellotti,British
+170,lotus-climax,Lotus-Climax,British
+171,lotus-maserati,Lotus-Maserati,British
+172,de_tomaso-osca,De Tomaso-Osca,Italian
+173,de_tomaso-alfa_romeo,De Tomaso-Alfa Romeo,Italian
+174,lotus-brm,Lotus-BRM,British
+175,lotus-borgward,Lotus-Borgward,British
+176,cooper-alfa_romeo,Cooper-Alfa Romeo,British
+177,de_tomaso-ferrari,De Tomaso-Ferrari,Italian
+178,lotus-ford,Lotus-Ford,British
+179,brabham-brm,Brabham-BRM,British
+180,brabham-ford,Brabham-Ford,British
+181,brabham-climax,Brabham-Climax,British
+182,lds-climax,LDS-Climax,South African
+183,lds-alfa_romeo,LDS-Alfa Romeo,South African
+184,cooper-ford,Cooper-Ford,British
+185,mclaren-ford,McLaren-Ford,British
+186,mclaren-seren,McLaren-Serenissima,British
+187,eagle-climax,Eagle-Climax,American
+188,eagle-weslake,Eagle-Weslake,American
+189,brabham-repco,Brabham-Repco,British
+190,cooper-ferrari,Cooper-Ferrari,British
+191,cooper-ats,Cooper-ATS,British
+192,mclaren-brm,McLaren-BRM,British
+193,cooper-brm,Cooper-BRM,British
+194,matra-ford,Matra-Ford,French
+195,brm-ford,BRM-Ford,British
+196,mclaren-alfa_romeo,McLaren-Alfa Romeo,British
+197,march-alfa_romeo,March-Alfa Romeo,British
+198,march-ford,March-Ford,British
+199,lotus-pw,Lotus-Pratt &amp; Whitney,British
+200,shadow-ford,Shadow-Ford,British
+201,shadow-matra,Shadow-Matra,British
+202,brabham-alfa_romeo,Brabham-Alfa Romeo,British
+203,lotus_racing,Lotus,Malaysian
+204,marussia,Marussia,Russian
+205,caterham,Caterham,Malaysian
+206,lotus_f1,Lotus F1,British
+207,manor,Manor Marussia,British
+208,haas,Haas F1 Team,American
+209,racing_point,Racing Point,British
+210,alphatauri,AlphaTauri,Italian
+211,alpine,Alpine F1 Team,French
