@@ -53,16 +53,16 @@ def run_etl_pipeline():
 
 
         # 1. Crea una instancia de tu nueva clase DatabaseLoader
-        db_loader = DatabaseLoader(engine=engine)
+        #db_loader = DatabaseLoader(engine=engine)
         
          #2. Llama al método para cargar todos los DataFrames
-        db_loader.load_data(
-            dim_drivers=dim_drivers,
-            dim_constructors=dim_constructors,
-            dim_circuits=dim_circuits,
-            dim_races=dim_races,
-            fact_qualifying=fact_qualifying
-        )
+        #db_loader.load_data(
+        #    dim_drivers=dim_drivers,
+        #    dim_constructors=dim_constructors,
+        #    dim_circuits=dim_circuits,
+        #    dim_races=dim_races,
+        #    fact_qualifying=fact_qualifying
+        #)
         
     except Exception as e:
         print(f"An error occurred during the ETL process: {e}")
