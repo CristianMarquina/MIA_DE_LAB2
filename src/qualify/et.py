@@ -17,6 +17,7 @@ class F1ETQualifyProcessor:
             self.df_constructors_raw = pd.read_csv(f"{self.data_path}/constructors.csv")
             self.df_circuits_raw = pd.read_csv(f"{self.data_path}/circuits.csv")
             self.df_races_raw = pd.read_csv(f"{self.data_path}/races.csv")
+            self.df_status_raw = pd.read_csv(f"{self.data_path}/status.csv", na_values=['\\N'])
             # For facts
             self.df_qualifying_raw = pd.read_csv(f"{self.data_path}/qualifying.csv")
             self.df_pit_stops_raw = pd.read_csv(f"{self.data_path}/pit_stops.csv", na_values=['\\N'])
@@ -150,6 +151,21 @@ class F1ETQualifyProcessor:
 
         return df
     
+    def process_dim_status(self):
+        """Procesa los datos de status para crear la dimensión DimStatus."""
+        print("Processing Dimension: Status...")
+        df = self.df_status_raw.copy()
+        
+        # Limpieza de datos
+        df.dropna(subset=['statusId'], inplace=True)
+        df.drop_duplicates(subset=['statusId'], inplace=True)
+        
+        # Renombrado de columnas y creación del mapa de traducción
+        df = df.rename(columns={'statusId': 'status_id', 'status': 'status_description'})
+        self.status_id_map = pd.Series(df.status_id.values, index=df.status_id).to_dict()
+        
+        return df
+    
     # et.py - Añade esta nueva función a tu clase
 
     def process_fact_pit_stops(self):
@@ -192,6 +208,61 @@ class F1ETQualifyProcessor:
         ]
         df = df[final_columns]
         
+        return df
+    
+    # et.py - Nuevo método añadido
+
+    def process_fact_race_results(self):
+        """
+        Procesa los datos de resultados de carrera, mapea las claves foráneas,
+        calcula métricas derivadas y selecciona los hechos relevantes.
+        """
+        print("Processing Fact Table: Race Results...")
+        df = self.df_results_raw.copy()
+
+        # --- 1. Mapeo de IDs (Traducción) ---
+        df['race_id'] = df['raceId'].map(self.race_id_map)
+        df['driver_id'] = df['driverId'].map(self.driver_id_map)
+        df['constructor_id'] = df['constructorId'].map(self.constructor_id_map)
+        # El statusId ya es la clave correcta, no necesita mapa.
+        df['status_id'] = df['statusId']
+
+        # --- 2. Limpieza de Datos ---
+        fk_columns = ['race_id', 'driver_id', 'constructor_id', 'status_id']
+        df.dropna(subset=fk_columns, inplace=True)
+        df[fk_columns] = df[fk_columns].astype(int)
+
+        # --- 3. Cálculo de Métrica Derivada ---
+        # Convertimos 'grid' y 'position' a numérico para poder calcular.
+        # 'coerce' convierte los no-números en NaN.
+        df['grid'] = pd.to_numeric(df['grid'], errors='coerce')
+        df['position'] = pd.to_numeric(df['position'], errors='coerce')
+        # Calculamos las posiciones ganadas. Si falta algún dato, el resultado será NaN.
+        df['positions_gained'] = df['grid'] - df['position']
+
+        # --- 4. Transformación de Hechos y Selección Final ---
+        df['fastest_lap_time_ms'] = df['fastestLapTime'].apply(self._time_to_milliseconds)
+        
+        # Limpiamos y rellenamos nulos en las métricas numéricas con 0.
+        numeric_facts = ['points', 'laps', 'fastestLap', 'rank', 'fastestLapSpeed', 'milliseconds', 'positions_gained']
+        for col in numeric_facts:
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+        
+        # Renombramos las columnas
+        df = df.rename(columns={
+            'resultId': 'result_id',
+            'fastestLap': 'fastest_lap',
+            'fastestLapSpeed': 'fastest_lap_speed'
+        })
+        
+        # Seleccionamos las columnas finales para la tabla de hechos.
+        final_columns = [
+            'result_id', 'race_id', 'driver_id', 'constructor_id', 'status_id',
+            'position', 'grid', 'positions_gained', 'points', 'laps', 
+            'milliseconds', 'fastest_lap', 'rank', 'fastest_lap_time_ms', 'fastest_lap_speed'
+        ]
+        df = df[final_columns]
+
         return df
         
         

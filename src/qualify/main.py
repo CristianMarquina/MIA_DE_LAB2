@@ -41,6 +41,11 @@ def run_etl_pipeline():
         print(dim_races.head())
         dim_races.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_races.csv'), index=False)
 
+        dim_status = processor.process_dim_status()
+        print("\n** Status Dimension **")
+        print(dim_status.head())
+        dim_status.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_status.csv'), index=False)
+
         # 3. Process the fact table, passing the clean dimensions for mapping.
         fact_qualifying = processor.process_fact_qualifying(
             dim_races=dim_races,
@@ -58,6 +63,12 @@ def run_etl_pipeline():
         fact_pit_stops.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_pit_stops.csv'), index=False)
 
 
+        fact_race_results = processor.process_fact_race_results() # <-- NUEVA TABLA DE HECHOS
+        fact_race_results.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_race_results.csv'), index=False) # <-- GUARDAR NUEVA TABLA DE HECHOS
+
+        # --- VERIFICACIÓN ---
+        print("\n** Race Results Fact Table **")
+        print(fact_race_results.head())
         # 1. Crea una instancia de tu nueva clase DatabaseLoader
         #db_loader = DatabaseLoader(engine=engine)
         
