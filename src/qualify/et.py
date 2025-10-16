@@ -19,6 +19,8 @@ class F1ETQualifyProcessor:
             self.df_races_raw = pd.read_csv(f"{self.data_path}/races.csv")
             # For facts
             self.df_qualifying_raw = pd.read_csv(f"{self.data_path}/qualifying.csv")
+            self.df_pit_stops_raw = pd.read_csv(f"{self.data_path}/pit_stops.csv", na_values=['\\N'])
+            self.df_results_raw = pd.read_csv(f"{self.data_path}/results.csv", na_values=['\\N'])
             print("All raw data loaded successfully.")
         except FileNotFoundError as e:
             print(f"Error loading data: {e}. Make sure CSV files are in the '{self.data_path}' directory.")
@@ -147,3 +149,49 @@ class F1ETQualifyProcessor:
         df = df[final_columns]
 
         return df
+    
+    # et.py - Añade esta nueva función a tu clase
+
+    def process_fact_pit_stops(self):
+        """
+        Procesa los datos de pit stops, los enriquece con el constructorId
+        y mapea las claves foráneas a los nuevos IDs secuenciales.
+        """
+        print("Processing Fact Table: Pit Stops...")
+        df = self.df_pit_stops_raw.copy()
+
+        # --- Paso 1: Enriquecimiento de Datos ---
+        # Usamos results.csv para encontrar el constructorId para cada parada.
+        # Seleccionamos solo las columnas necesarias y eliminamos duplicados para crear una tabla de consulta limpia.
+        constructor_lookup = self.df_results_raw[['raceId', 'driverId', 'constructorId']].drop_duplicates()
+        
+        # Unimos (merge) los datos de pit stops con la tabla de consulta.
+        df = pd.merge(df, constructor_lookup, on=['raceId', 'driverId'], how='left')
+
+        # --- Paso 2: Mapeo de IDs ---
+        # Usamos los mapas de traducción creados en los métodos de dimensión.
+        df['race_id'] = df['raceId'].map(self.race_id_map)
+        df['driver_id'] = df['driverId'].map(self.driver_id_map)
+        df['constructor_id'] = df['constructorId'].map(self.constructor_id_map)
+
+        # --- Paso 3: Limpieza de Datos ---
+        # Eliminamos cualquier parada que no se pudo mapear a una carrera, piloto o constructor válido.
+        fk_columns = ['race_id', 'driver_id', 'constructor_id']
+        df.dropna(subset=fk_columns, inplace=True)
+        df[fk_columns] = df[fk_columns].astype(int)
+
+        # --- Paso 4: Selección Final de Columnas y Renombrado ---
+        df = df.rename(columns={'stop': 'stop_number', 'milliseconds': 'duration_ms'})
+        
+        # Generamos un ID único para cada parada en boxes
+        df.insert(0, 'pit_stop_id', range(1, len(df) + 1))
+        
+        final_columns = [
+            'pit_stop_id', 'race_id', 'driver_id', 'constructor_id',
+            'lap', 'stop_number', 'duration_ms'
+        ]
+        df = df[final_columns]
+        
+        return df
+        
+        

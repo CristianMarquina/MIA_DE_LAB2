@@ -51,6 +51,12 @@ def run_etl_pipeline():
         print(fact_qualifying.head())
         fact_qualifying.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_qualifying.csv'), index=False)
 
+                # 3. Process the fact table, passing the clean dimensions for mapping.
+        fact_pit_stops = processor.process_fact_pit_stops()
+        print("\n** Pit Stops Fact Table (note the mapped FKs) **")
+        print(fact_pit_stops.head())
+        fact_pit_stops.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_pit_stops.csv'), index=False)
+
 
         # 1. Crea una instancia de tu nueva clase DatabaseLoader
         #db_loader = DatabaseLoader(engine=engine)
