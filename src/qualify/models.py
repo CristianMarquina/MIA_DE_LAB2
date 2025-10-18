@@ -1,5 +1,3 @@
-# src/qualify/models.py
-
 from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 

@@ -15,11 +15,10 @@ def check_for_nulls(df, table_name):
         for col, count in null_counts.items():
             if count > 0:
                 print(f"  Column '{col}' has {count} null values.")
-        return True  # Indicate nulls were found
+        return True  
     else:
         print(f"\nNo null values found in table '{table_name}'.")
-        return False  # Indicate no nulls were found
-    
+        return False 
 def run_etl_pipeline():
     """
     Main function to execute the F1 ETL pipeline step-by-step.
@@ -37,7 +36,6 @@ def run_etl_pipeline():
     try:
         processor = F1ETQualifyProcessor(data_path=DATA_DIRECTORY)
         
-        # Process each dimension first. This cleans the data.
         dim_drivers = processor.process_dim_drivers()
         print("\n** Drivers Dimension **")
         print(dim_drivers.head())
@@ -64,13 +62,11 @@ def run_etl_pipeline():
         print(dim_status.head())
         dim_status.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_status.csv'), index=False)
 
-        # 3. Process the fact table, passing the clean dimensions for mapping.
         fact_qualifying = processor.process_fact_qualifying(        )
         print("\n** Qualifying Fact Table (note the mapped FKs) **")
         print(fact_qualifying.head())
         fact_qualifying.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_qualifying.csv'), index=False)
 
-                # 3. Process the fact table, passing the clean dimensions for mapping.
         fact_pit_stops = processor.process_fact_pit_stops()
         print("\n** Pit Stops Fact Table (note the mapped FKs) **")
         print(fact_pit_stops.head())
@@ -80,12 +76,8 @@ def run_etl_pipeline():
         fact_race_results = processor.process_fact_race_results()
         fact_race_results.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_race_results.csv'), index=False) # <-- GUARDAR NUEVA TABLA DE HECHOS
 
-        # --- VERIFICACIÓN ---
-        print("\n** Race Results Fact Table **")
-        print(fact_race_results.head())
         db_loader = DatabaseLoader(engine=engine)
         
-         #2. Llama al método para cargar todos los DataFrames
         db_loader.load_data(
             dim_drivers=dim_drivers,
             dim_constructors=dim_constructors,
@@ -97,8 +89,8 @@ def run_etl_pipeline():
             fact_race_results=fact_race_results
         )
 
-        print("\n--- Verifying No Null Values in DataFrames ---")
-        nulls_found = False  # Flag to track if any nulls were found in any table
+        print("\n Verifying No Null Values in DataFrames ")
+        nulls_found = False  
 
         if check_for_nulls(dim_drivers, 'dim_drivers'):
             nulls_found = True
