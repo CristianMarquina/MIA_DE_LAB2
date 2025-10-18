@@ -47,11 +47,7 @@ def run_etl_pipeline():
         dim_status.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'dim_status.csv'), index=False)
 
         # 3. Process the fact table, passing the clean dimensions for mapping.
-        fact_qualifying = processor.process_fact_qualifying(
-            dim_races=dim_races,
-            dim_drivers=dim_drivers,
-            dim_constructors=dim_constructors
-        )
+        fact_qualifying = processor.process_fact_qualifying(        )
         print("\n** Qualifying Fact Table (note the mapped FKs) **")
         print(fact_qualifying.head())
         fact_qualifying.to_csv(os.path.join(PROCESSED_DATA_DIRECTORY, 'fact_qualifying.csv'), index=False)
@@ -69,17 +65,20 @@ def run_etl_pipeline():
         # --- VERIFICACIÓN ---
         print("\n** Race Results Fact Table **")
         print(fact_race_results.head())
-        # 1. Crea una instancia de tu nueva clase DatabaseLoader
-        #db_loader = DatabaseLoader(engine=engine)
+        db_loader = DatabaseLoader(engine=engine)
         
          #2. Llama al método para cargar todos los DataFrames
-        #db_loader.load_data(
-        #    dim_drivers=dim_drivers,
-        #    dim_constructors=dim_constructors,
-        #    dim_circuits=dim_circuits,
-        #    dim_races=dim_races,
-        #    fact_qualifying=fact_qualifying
-        #)
+        db_loader.load_data(
+            dim_drivers=dim_drivers,
+            dim_constructors=dim_constructors,
+            dim_circuits=dim_circuits,
+            dim_races=dim_races,
+            dim_status=dim_status,
+            fact_qualifying=fact_qualifying,
+            fact_pit_stops=fact_pit_stops,
+            fact_race_results=fact_race_results
+        )
+        
         
     except Exception as e:
         print(f"An error occurred during the ETL process: {e}")

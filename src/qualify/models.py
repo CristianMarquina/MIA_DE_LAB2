@@ -38,20 +38,51 @@ class Race(Base):
     date = Column(Date)
     time = Column(String(255))
 
+class Status(Base):
+    __tablename__ = 'dim_status'
+    status_id = Column(Integer, primary_key=True)
+    status_description = Column(String(255))
+
 class Qualifying(Base):
     __tablename__ = 'fact_qualifying'
     qualify_id = Column(Integer, primary_key=True)
     race_id = Column(Integer, ForeignKey('dim_races.race_id'))
     driver_id = Column(Integer, ForeignKey('dim_drivers.driver_id'))
     constructor_id = Column(Integer, ForeignKey('dim_constructors.constructor_id'))
-    car_number = Column(Integer)
     position = Column(Integer)
     q1_time_ms = Column(Integer)
     q2_time_ms = Column(Integer)
     q3_time_ms = Column(Integer)
 
+class PitStop(Base):
+    __tablename__ = 'fact_pit_stops'
+    pit_stop_id = Column(Integer, primary_key=True)
+    race_id = Column(Integer, ForeignKey('dim_races.race_id'))
+    driver_id = Column(Integer, ForeignKey('dim_drivers.driver_id'))
+    constructor_id = Column(Integer, ForeignKey('dim_constructors.constructor_id'))
+    lap = Column(Integer)
+    stop_number = Column(Integer)
+    duration_ms = Column(Integer)
+
+class RaceResult(Base):
+    __tablename__ = 'fact_race_results'
+    result_id = Column(Integer, primary_key=True)
+    race_id = Column(Integer, ForeignKey('dim_races.race_id'))
+    driver_id = Column(Integer, ForeignKey('dim_drivers.driver_id'))
+    constructor_id = Column(Integer, ForeignKey('dim_constructors.constructor_id'))
+    status_id = Column(Integer, ForeignKey('dim_status.status_id'))
+    position = Column(Integer)
+    grid = Column(Integer)
+    positions_gained = Column(Float)
+    points = Column(Float)
+    laps = Column(Integer)
+    milliseconds = Column(Float)
+    fastest_lap = Column(Integer)
+    rank = Column(Integer)
+    fastest_lap_time_ms = Column(Integer)
+    fastest_lap_speed = Column(Float)
+
 def create_all_tables(engine):
-    """Borra y recrea todas las tablas definidas en este modelo."""
     print("Dropping all existing tables...")
     Base.metadata.drop_all(engine)
     print("Creating all tables...")

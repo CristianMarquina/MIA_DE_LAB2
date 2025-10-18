@@ -50,14 +50,13 @@ class F1ETQualifyProcessor:
         df.drop_duplicates(subset=['driverId'], inplace=True)
 
         df['full_name'] = df['forename'] + ' ' + df['surname']
-        df = df[['driverRef', 'full_name', 'dob', 'nationality', 'driverId']]  # Keep driverId temporarily
+        df = df[['driverRef', 'full_name', 'dob', 'nationality', 'driverId']] 
         df.insert(0, 'driver_id', range(1, len(df) + 1))
         df = df.rename(columns={'driverRef': 'driver_ref'})
 
-        # Create mapping dictionary
         self.driver_id_map = pd.Series(df.driver_id.values, index=df.driverId).to_dict()
 
-        df = df.drop(columns=['driverId'])  # Remove original driverId
+        df = df.drop(columns=['driverId'])  
         print("Processed number of records:", len(df))
         return df
 
@@ -69,14 +68,13 @@ class F1ETQualifyProcessor:
         df.dropna(subset=['constructorId'], inplace=True)
         df.drop_duplicates(subset=['constructorId'], inplace=True)
 
-        df = df[['constructorRef', 'name', 'nationality', 'constructorId']]  # Keep constructorId temporarily
+        df = df[['constructorRef', 'name', 'nationality', 'constructorId']]  
         df.insert(0, 'constructor_id', range(1, len(df) + 1))
         df = df.rename(columns={'constructorRef': 'constructor_ref'})
 
-        # Create mapping dictionary
         self.constructor_id_map = pd.Series(df.constructor_id.values, index=df.constructorId).to_dict()
 
-        df = df.drop(columns=['constructorId'])  # Remove original constructorId
+        df = df.drop(columns=['constructorId'])  
         print("Processed number of records:", len(df))
         return df
 
@@ -117,7 +115,7 @@ class F1ETQualifyProcessor:
         df = df.drop(columns=['raceId'])  # Remove original raceId
         return df
 
-    def process_fact_qualifying(self, dim_races, dim_drivers, dim_constructors):
+    def process_fact_qualifying(self):
         """
         Processes qualifying data, converting times to milliseconds and
         mapping foreign keys from the processed dimension tables.
