@@ -185,46 +185,74 @@ class F1ETQualifyProcessor:
         return df
     
     def process_fact_race_results(self):
-            """
-            Processes race result data, maps foreign keys,
-            calculates derived metrics, and selects relevant facts.
-            """
-            print("Processing Fact Table: Race Results...")
-            df = self.df_results_raw.copy()
+        """
+        Processes race result data, maps foreign keys,
+        calculates derived metrics, and selects relevant facts.
+        """
+        print("Processing Fact Table: Race Results...")
+        df = self.df_results_raw.copy()
 
-            df['race_id'] = df['raceId'].map(self.race_id_map)
-            df['driver_id'] = df['driverId'].map(self.driver_id_map)
-            df['constructor_id'] = df['constructorId'].map(self.constructor_id_map)
-            df['status_id'] = df['statusId']
+        # --- 1. ID Mapping (Translation) ---
+        df['race_id'] = df['raceId'].map(self.race_id_map)
+        df['driver_id'] = df['driverId'].map(self.driver_id_map)
+        df['constructor_id'] = df['constructorId'].map(self.constructor_id_map)
+        # The statusId is already the correct key, no map needed.
+        df['status_id'] = df['statusId']
 
-            fk_columns = ['race_id', 'driver_id', 'constructor_id', 'status_id']
-            df.dropna(subset=fk_columns, inplace=True)
-            df[fk_columns] = df[fk_columns].astype(int)
+        # --- 2. Data Cleaning ---
+        fk_columns = ['race_id', 'driver_id', 'constructor_id', 'status_id']
+        df.dropna(subset=fk_columns, inplace=True)
+        df[fk_columns] = df[fk_columns].astype(int)
 
-            df['grid'] = pd.to_numeric(df['grid'], errors='coerce')
-            df['position'] = pd.to_numeric(df['position'], errors='coerce').fillna(0)
-            df['positions_gained'] = df['grid'] - df['position']
+        # --- 3. Derived Metric Calculation ---
+        # Convert 'grid' and 'position' to numeric for calculation.
+        # 'coerce' converts non-numbers to NaN.
+        df['grid'] = pd.to_numeric(df['grid'], errors='coerce').fillna(0)
+        df['position'] = pd.to_numeric(df['position'], errors='coerce').fillna(0)
+        # Calculate positions gained. If any data is missing, the result will be NaN.
+        df['positions_gained'] = df['grid'] - df['position']
 
-            df['fastest_lap_time_ms'] = df['fastestLapTime'].apply(self._time_to_milliseconds)
-            
-            numeric_facts = ['points', 'laps', 'fastestLap', 'rank', 'fastestLapSpeed', 'milliseconds', 'positions_gained']
-            for col in numeric_facts:
-                df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
-            
-            df['fastest_lap_time_ms'] = df['fastest_lap_time_ms'].fillna(0)
+        # --- 4. Fact Transformation and Final Selection ---
+        df['fastest_lap_time_ms'] = df['fastestLapTime'].apply(self._time_to_milliseconds)
+        
+        # Clean and fill nulls in numeric metrics with 0.
+        numeric_facts = ['points', 'laps', 'fastestLap', 'rank', 'fastestLapSpeed', 'milliseconds', 'positions_gained']
+        for col in numeric_facts:
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+        
+        # Fill null values in 'fastest_lap_time_ms' with 0
+        df['fastest_lap_time_ms'] = df['fastest_lap_time_ms'].fillna(0)
 
-            df = df.rename(columns={
-                'resultId': 'result_id',
-                'fastestLap': 'fastest_lap',
-                'fastestLapSpeed': 'fastest_lap_speed'
-            })
-            
-            final_columns = [
-                'result_id', 'race_id', 'driver_id', 'constructor_id', 'status_id',
-                'position', 'grid', 'positions_gained', 'points', 'laps', 
-                'milliseconds', 'fastest_lap', 'rank', 'fastest_lap_time_ms', 'fastest_lap_speed'
-            ]
-            df = df[final_columns]
+        # Rename the columns
+        df = df.rename(columns={
+            'resultId': 'result_id',
+            'fastestLap': 'fastest_lap',
+            'fastestLapSpeed': 'fastest_lap_speed'
+        })
+        
+        # Select the final columns for the fact table.
+        final_columns = [
+            'result_id', 'race_id', 'driver_id', 'constructor_id', 'status_id',
+            'position', 'grid', 'positions_gained', 'points', 'laps', 
+            'milliseconds', 'fastest_lap', 'rank', 'fastest_lap_time_ms', 'fastest_lap_speed'
+        ]
+        df = df[final_columns]
 
-            return df  
-            
+        # --- 5. Force Data Type Conversion ---
+        # Explicitly convert numeric columns to the correct data types
+        df['position'] = df['position'].astype(int)
+        df['grid'] = df['grid'].astype(int)
+        df['positions_gained'] = df['positions_gained'].astype(float)
+        df['points'] = df['points'].astype(float)
+        df['laps'] = df['laps'].astype(int)
+        df['milliseconds'] = df['milliseconds'].astype(float)
+        df['fastest_lap'] = df['fastest_lap'].astype(int)
+        df['rank'] = df['rank'].astype(int)
+        df['fastest_lap_time_ms'] = df['fastest_lap_time_ms'].astype(int)
+        df['fastest_lap_speed'] = df['fastest_lap_speed'].astype(float)
+
+        # --- 6. Print Data Types for Verification ---
+        print("\nData Types of fact_race_results DataFrame:")
+        print(df.dtypes)
+
+        return df
